@@ -1,5 +1,5 @@
 <?php
-/* Switch case*/
+//Switch case
 // É uma forma de reduzir a complexidade de vários if … else encadeados. É muito utilizado, principalmente para uso em estruturas de menu. O conteúdo de uma variável é comparado com um valor constante, e caso a comparação seja verdadeira, um determinado comando é executado.
 
 /*
@@ -14,6 +14,7 @@
     }
 */
 
+// Match segue o mesmo princípio porem é mais performático
 /* Match */
 /*$food = 'cake';
 
