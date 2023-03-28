@@ -1,4 +1,5 @@
 <?php
+namespace aplication\model;
 class CPF
 {
     private string $numero;

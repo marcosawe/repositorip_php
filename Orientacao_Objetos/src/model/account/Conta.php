@@ -1,5 +1,5 @@
 <?php
-
+namespace aplication\model\account;
 class Conta
 {
     private $titular;
