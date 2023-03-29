@@ -1,10 +1,12 @@
 <?php
 namespace aplication\model\account;
-class Conta
+abstract class Conta //
 {
-    private $titular;
-    private $saldo;
-    private static $numeroDeContas = 0;
+    #region Atributos 
+    private Titular $titular;
+    protected $saldo;
+    private static float $numeroDeContas = 0;
+    #endregion
 
     public function __construct(Titular $titular) //Instanciando construtor
     {
@@ -19,14 +21,18 @@ class Conta
         self::$numeroDeContas--;
     }
 
+    abstract protected function percentualDeTarifa():float; // Método abstrato (incompleto)...
+
     public function saca(float $valorASacar): void
     {
-        if ($valorASacar > $this->saldo) {
+        $valorTarifa = $valorASacar * $this->percentualDeTarifa();
+        $valorSaque = $valorASacar + $valorTarifa;
+        if ($valorSaque > $this->saldo) {
             echo "Saldo indisponível";
             return;
         }
 
-        $this->saldo -= $valorASacar;
+        $this->saldo -= $valorSaque;
     }
 
     public function deposita(float $valorADepositar): void
